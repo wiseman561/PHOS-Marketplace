@@ -2,38 +2,34 @@ name: CI
 
 on:
   push:
-    branches: ["**"]
+    branches: [ main, master ]
   pull_request:
-    branches: ["**"]
+    branches: [ main, master ]
 
 jobs:
   build-test:
     runs-on: ubuntu-latest
-    env:
-      DOTNET_NOLOGO: true
-      DOTNET_CLI_TELEMETRY_OPTOUT: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET (9.x)
+      - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.x'
-
-      - name: Cache NuGet
-        uses: actions/cache@v4
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
+          dotnet-version: '8.0.x'
 
       - name: Restore
-        run: dotnet restore PHOS-Marketplace.sln
+        run: dotnet restore
 
-      - name: Build (Release)
-        run: dotnet build PHOS-Marketplace.sln --configuration Release --nologo
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
 
-      - name: Test (Release, no build)
-        run: dotnet test PHOS-Marketplace.sln --configuration Release --no-build --logger "trx;LogFileName=test_results.trx"
+      - name: Test
+        run: dotnet test --configuration Release --no-build --logger "trx;LogFileName=test-results.trx"
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dotnet-test-results
+          path: '**/TestResults/*.trx'
