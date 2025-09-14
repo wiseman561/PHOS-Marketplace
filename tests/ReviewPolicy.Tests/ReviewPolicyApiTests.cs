@@ -122,4 +122,3 @@ public class ReviewPolicyApiTests : IClassFixture<WebApplicationFactory<Program>
         content.Should().Contain("not_found");
     }
 }
-0

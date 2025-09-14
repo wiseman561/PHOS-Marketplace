@@ -98,8 +98,6 @@ app.MapGet("/submissions/{id}", (string id) =>
 
 app.Run();
 
-public partial class Program { }
-
 public record Submission
 {
     public string Id { get; init; } = "";
@@ -109,3 +107,5 @@ public record Submission
     public string Status { get; init; } = "";
     public string CreatedAt { get; init; } = "";
 }
+
+public partial class Program { }
