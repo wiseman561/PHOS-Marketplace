@@ -13,10 +13,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET (9.0 and 8.0)
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.100'
+          dotnet-version: |
+            9.0.x
+            8.0.x
+
+      - name: Display dotnet info
+        run: dotnet --info
 
       - name: Restore
         run: dotnet restore
