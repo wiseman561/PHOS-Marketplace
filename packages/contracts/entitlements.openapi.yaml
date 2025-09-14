@@ -2,23 +2,180 @@ openapi: 3.0.3
 info:
   title: PHOS Entitlements API
   version: 0.1.0
+servers:
+  - url: http://localhost:5180
+    description: Entitlements service (dev)
 paths:
+  /healthz:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+  /api/info:
+    get:
+      summary: Service info
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: entitlements
+                  version:
+                    type: string
+                    example: 0.1.0
   /entitlements:
     get:
       summary: List entitlements
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Entitlement'
     post:
-      summary: Grant entitlement
+      summary: Grant a new entitlement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GrantRequest'
       responses:
         '201':
           description: Created
-  /entitlements/check:
-    post:
-      summary: Check entitlement for a user/app
+          headers:
+            Location:
+              description: URL of the created entitlement
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entitlement'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /entitlements/{id}:
+    get:
+      summary: Get entitlement by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Entitlement'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /entitlements/check:
+    post:
+      summary: Check if user has an active entitlement for an app (optionally SKU)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckResponse'
 components:
-  schemas: {}
+  schemas:
+    Entitlement:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        userId:
+          type: string
+        appId:
+          type: string
+        sku:
+          type: string
+        status:
+          type: string
+          enum: [active, revoked]
+        issuedAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+          nullable: true
+      required: [id, userId, appId, sku, status, issuedAt]
+    GrantRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        appId:
+          type: string
+        sku:
+          type: string
+          nullable: true
+        ttlDays:
+          type: integer
+          minimum: 1
+          nullable: true
+      required: [userId, appId]
+    CheckRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        appId:
+          type: string
+        sku:
+          type: string
+          nullable: true
+      required: [userId, appId]
+    CheckResponse:
+      type: object
+      properties:
+        allowed:
+          type: boolean
+        reason:
+          type: string
+          enum: [active, expired, not_found]
+      required: [allowed, reason]
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required: [error]
