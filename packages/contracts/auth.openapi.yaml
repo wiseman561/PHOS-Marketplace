@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: PHOS Auth & Consent API
+  version: 0.1.0
+paths:
+  /oauth/token:
+    post:
+      summary: Exchange credentials for an access token
+      responses:
+        '200':
+          description: OK
+  /consents:
+    get:
+      summary: List consents
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create consent
+      responses:
+        '201':
+          description: Created
+components:
+  schemas: {}

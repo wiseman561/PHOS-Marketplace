@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: PHOS Review & Policy API
+  version: 0.1.0
+paths:
+  /submissions:
+    get:
+      summary: List submissions
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Submit build for review
+      responses:
+        '201':
+          description: Created
+  /submissions/{id}:
+    get:
+      summary: Get submission
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+components:
+  schemas: {}

@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Build outputs
+dist/
+build/
+bin/
+obj/
+
+# OS generated files
+.DS_Store
+
+# Local configuration
+*.local.*
+*.user
+
+# IDE files
+.idea/
+.vscode/*
+!.vscode/settings.json

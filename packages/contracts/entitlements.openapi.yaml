@@ -1,0 +1,24 @@
+openapi: 3.0.3
+info:
+  title: PHOS Entitlements API
+  version: 0.1.0
+paths:
+  /entitlements:
+    get:
+      summary: List entitlements
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Grant entitlement
+      responses:
+        '201':
+          description: Created
+  /entitlements/check:
+    post:
+      summary: Check entitlement for a user/app
+      responses:
+        '200':
+          description: OK
+components:
+  schemas: {}

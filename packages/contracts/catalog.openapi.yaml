@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: PHOS Catalog API
+  version: 0.1.0
+paths:
+  /apps:
+    get:
+      summary: List marketplace apps
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create app
+      responses:
+        '201':
+          description: Created
+  /apps/{id}:
+    get:
+      summary: Get app by id
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+components:
+  schemas: {}
