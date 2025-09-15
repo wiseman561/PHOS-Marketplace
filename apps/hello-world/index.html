@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PHOS Hello World</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 2rem; }
+    .card { border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); max-width: 720px; }
+    h1 { margin: 0 0 8px; font-size: 1.5rem; }
+    .dim { color: #6b7280; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 6px; }
+    button { padding: 10px 14px; border-radius: 8px; border: 1px solid #d1d5db; background: white; cursor: pointer; }
+    button:hover { background: #f9fafb; }
+    pre { background: #0b1020; color: #d1e7ff; padding: 12px; border-radius: 12px; overflow: auto; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>👋 PHOS Hello-World</h1>
+    <p class="dim">SDK v0 demo: <code>init → onContext → install check (via gateway)</code></p>
+    <div id="ctx"></div>
+    <div style="margin-top:12px;">
+      <button id="install">Install GenomeKit (u1)</button>
+      <button id="list">List Installs (u1)</button>
+    </div>
+    <h3>Output</h3>
+    <pre id="out"></pre>
+  </div>
+  <script src="/sdk/phos-sdk.js"></script>
+  <script>
+    const out = document.getElementById('out');
+    const ctxDiv = document.getElementById('ctx');
+    function log(x){ out.textContent = (typeof x === 'string') ? x : JSON.stringify(x, null, 2); }
+
+    // Init SDK with a fake user for demo
+    PhosSDK.init({ context: { userId: 'u1', orgId: 'demo', scopes: [] } });
+    PhosSDK.onContext(e => { ctxDiv.textContent = 'Context: ' + JSON.stringify(e.context); });
+
+    document.getElementById('install').onclick = async () => {
+      const r = await fetch('/appstore/api/store/apps/app.genomekit/install', {
+        method: 'POST', headers: { 'Content-Type':'application/json' }, body: JSON.stringify({ userId: 'u1' })
+      });
+      log(await r.json());
+    };
+    document.getElementById('list').onclick = async () => {
+      const r = await fetch('/appstore/api/store/installs?userId=u1');
+      log(await r.json());
+    };
+  </script>
+</body>
+</html>
