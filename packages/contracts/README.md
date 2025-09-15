@@ -9,3 +9,4 @@ Source of truth for public APIs. Services must not diverge from these contracts.
 - [review.openapi.yaml](./review.openapi.yaml) — App submission review and policy enforcement
 - [entitlements.openapi.yaml](./entitlements.openapi.yaml) — User entitlements and access control
 - [billing.openapi.yaml](./billing.openapi.yaml) — Payment processing and billing operations
+- [appstore.openapi.yaml](./appstore.openapi.yaml) — App listings and installs
