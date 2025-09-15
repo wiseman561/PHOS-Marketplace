@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="aebd1e31-99bd-4485-b779-4d0ebf48ad27" name="15612@CYNTHIA-WISEMAN 2025-09-15 18:11:10" runUser="CYNTHIA-WISEMAN\15612" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-09-15T18:11:10.4501769-04:00" queuing="2025-09-15T18:11:10.4501773-04:00" start="2025-09-15T18:11:06.2562896-04:00" finish="2025-09-15T18:11:10.4584742-04:00" />
+  <TestSettings name="default" id="e79af0b8-f648-4085-afe6-a88c520a2058">
+    <Deployment runDeploymentRoot="15612_CYNTHIA-WISEMAN_2025-09-15_18_11_10" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="de070dcc-8762-4c0b-af4e-8480c060f985" testId="7a3ef66b-aa75-64eb-d7ea-a5e0904a3f6b" testName="Gateway.Tests.GatewayHealthTests.Info_Works" computerName="CYNTHIA-WISEMAN" duration="00:00:00.0154473" startTime="2025-09-15T18:11:10.2840095-04:00" endTime="2025-09-15T18:11:10.2840101-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="de070dcc-8762-4c0b-af4e-8480c060f985" />
+    <UnitTestResult executionId="8d306cf8-4740-4030-81db-0b4c876db4dd" testId="c183aeac-eb6f-8a49-a18b-7f5fae9c34be" testName="Gateway.Tests.GatewayHealthTests.Health_Works" computerName="CYNTHIA-WISEMAN" duration="00:00:01.4467220" startTime="2025-09-15T18:11:10.2667456-04:00" endTime="2025-09-15T18:11:10.2667877-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8d306cf8-4740-4030-81db-0b4c876db4dd" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Gateway.Tests.GatewayHealthTests.Health_Works" storage="c:\users\15612\desktop\repositories\phos-marketplace\tests\gateway.tests\bin\debug\net9.0\gateway.tests.dll" id="c183aeac-eb6f-8a49-a18b-7f5fae9c34be">
+      <Execution id="8d306cf8-4740-4030-81db-0b4c876db4dd" />
+      <TestMethod codeBase="C:\Users\15612\Desktop\Repositories\PHOS-Marketplace\tests\Gateway.Tests\bin\Debug\net9.0\Gateway.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Gateway.Tests.GatewayHealthTests" name="Health_Works" />
+    </UnitTest>
+    <UnitTest name="Gateway.Tests.GatewayHealthTests.Info_Works" storage="c:\users\15612\desktop\repositories\phos-marketplace\tests\gateway.tests\bin\debug\net9.0\gateway.tests.dll" id="7a3ef66b-aa75-64eb-d7ea-a5e0904a3f6b">
+      <Execution id="de070dcc-8762-4c0b-af4e-8480c060f985" />
+      <TestMethod codeBase="C:\Users\15612\Desktop\Repositories\PHOS-Marketplace\tests\Gateway.Tests\bin\Debug\net9.0\Gateway.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Gateway.Tests.GatewayHealthTests" name="Info_Works" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="7a3ef66b-aa75-64eb-d7ea-a5e0904a3f6b" executionId="de070dcc-8762-4c0b-af4e-8480c060f985" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c183aeac-eb6f-8a49-a18b-7f5fae9c34be" executionId="8d306cf8-4740-4030-81db-0b4c876db4dd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="2" executed="2" passed="2" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 9.0.6)&#xD;
+[xUnit.net 00:00:00.99]   Discovering: Gateway.Tests&#xD;
+[xUnit.net 00:00:01.05]   Discovered:  Gateway.Tests&#xD;
+[xUnit.net 00:00:01.06]   Starting:    Gateway.Tests&#xD;
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[63]&#xD;
+      User profile is available. Using 'C:\Users\15612\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.&#xD;
+info: Yarp.ReverseProxy.Configuration.ConfigProvider.ConfigurationConfigProvider[1]&#xD;
+      Loading proxy data from config.&#xD;
+info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[58]&#xD;
+      Creating key {1b15c18f-a355-4513-8e4e-8889f79dfc55} with creation date 2025-09-15 22:11:09Z, activation date 2025-09-15 22:11:09Z, and expiration date 2025-12-14 22:11:09Z.&#xD;
+info: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[39]&#xD;
+      Writing data to file 'C:\Users\15612\AppData\Local\ASP.NET\DataProtection-Keys\key-1b15c18f-a355-4513-8e4e-8889f79dfc55.xml'.&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/healthz - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]&#xD;
+      Setting HTTP status code 200.&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]&#xD;
+      Writing value of type '&lt;&gt;f__AnonymousType0`1' as Json.&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'HTTP: GET /healthz'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/healthz - 200 - application/json;+charset=utf-8 164.7932ms&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]&#xD;
+      Request starting HTTP/1.1 GET http://localhost/api/info - - -&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]&#xD;
+      Executing endpoint 'HTTP: GET /api/info'&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]&#xD;
+      Setting HTTP status code 200.&#xD;
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]&#xD;
+      Writing value of type '&lt;&gt;f__AnonymousType1`2' as Json.&#xD;
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]&#xD;
+      Executed endpoint 'HTTP: GET /api/info'&#xD;
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]&#xD;
+      Request finished HTTP/1.1 GET http://localhost/api/info - 200 - application/json;+charset=utf-8 9.4549ms&#xD;
+[xUnit.net 00:00:02.64]   Finished:    Gateway.Tests&#xD;
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
