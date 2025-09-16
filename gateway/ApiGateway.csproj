@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <!-- Using net9 for consistency with other services; the repo already installs 8 & 9 in CI -->
-    <TargetFramework>net9.0</TargetFramework>
+    <!-- Keep gateway on net8 for widest package compatibility; CI installs 8 & 9 -->
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Yarp.ReverseProxy" Version="2.1.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
   </ItemGroup>
   <ItemGroup>
     <None Update="appsettings.ReverseProxy.json">
