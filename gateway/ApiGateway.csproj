@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <!-- Keep gateway on net8 for widest package compatibility; the repo already installs 8 & 9 in CI -->
+    <!-- Keep gateway on net8 for widest package compatibility; CI installs 8 & 9 -->
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
